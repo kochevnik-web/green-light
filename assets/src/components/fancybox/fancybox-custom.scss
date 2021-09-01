@@ -1,0 +1,162 @@
+#add-message {
+    max-width: 460px;
+    padding: 50px;
+
+    @media (max-width: 768px) {
+        padding: 25px 15px;
+    }
+
+    .wrapper {
+        position: relative;
+
+        .form-message-hide {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            top: 0;
+            left: 0;
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            justify-content: center;
+            transition: opacity ease 0.6s;
+
+            &-title {
+                font-size: 34px;
+                line-height: 0.9;
+                color: var(--blue);
+                font-weight: 400;
+                margin: 0 0 15px 0;
+            }
+        }
+
+        &.hide {
+            .form-message-hide {
+                opacity: 1;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .modal-title {
+        font-size: 34px;
+        color: var(--blue);
+        font-weight: 400;
+        line-height: 0.9;
+        margin: 0 0 40px;
+    }
+
+    .form-message {
+        position: relative;
+
+        &.loading {
+            &::after {
+                width: 100%;
+                height: 100%;
+                opacity: 0.7;
+            }
+        }
+
+        &::after {
+            content: "";
+            background: var(--white);
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity ease 0.6s;
+        }
+    }
+
+    .input-wrap {
+        position: relative;
+        margin: 0 0 20px;
+        height: 59px;
+
+        &.error {
+            position: relative;
+
+            input {
+                border-bottom: 1px solid var(--red);
+            }
+
+            &:after {
+                content: "Ошибка!";
+                color: var(--red);
+                position: absolute;
+                font-size: 12px;
+                right: 0;
+            }
+        }
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #c4c4c4;
+        height: 59px;
+        font-weight: 300;
+        padding: 0 10px;
+
+        @media (max-width: 768px) {
+            padding: 0;
+        }
+
+        &:required + label {
+            &:after {
+                content: "*";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    p {
+        margin: 0 0 20px 0;
+        font-weight: 400;
+    }
+
+    textarea {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #c4c4c4;
+        margin: 0 0 20px 0;
+        height: 80px;
+        padding: 10px;
+        font-weight: 300;
+
+        @media (max-width: 768px) {
+            padding: 10px 0;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .modal-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-info {
+            font-size: 14px;
+            font-weight: 400;
+
+            @media (max-width: 768px) {
+                font-size: 12px;
+            }
+        }
+    }
+}
