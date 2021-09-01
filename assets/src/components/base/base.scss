@@ -1,0 +1,11 @@
+body {
+    --black: #000000;
+    --white: #ffffff;
+    --green: #6d9773;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    background-color: var(--green);
+    color: var(--white);
+}

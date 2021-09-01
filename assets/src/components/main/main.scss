@@ -1,0 +1,14 @@
+#main {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    .title {
+        font-family: "Tenor Sans", sans-serif;
+        line-height: 10.7em;
+
+        span {
+            font-size: 9.3em;
+        }
+    }
+}

@@ -33,6 +33,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "gsap": "^3.7.1"
+    "gsap": "^3.7.1",
+    "swiper": "^6.5.7"
   }
 }
