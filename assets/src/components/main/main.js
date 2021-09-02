@@ -6,8 +6,9 @@ jQuery(document).ready(function( $ ) {
         isMobile: false
     }
 
-    new Swiper('.main-swiper', {
+    const mainslider = new Swiper('.main-swiper', {
         loop: true,
+        touchRatio: globalObj.isMobile,
 
         pagination: {
             el: ".swiper-pagination",
@@ -18,6 +19,11 @@ jQuery(document).ready(function( $ ) {
             nextEl: '.main-swiper-buttons .swiper-button-next',
             prevEl: '.main-swiper-buttons .swiper-button-prev',
         },
+    });
+
+    mainslider.on('transitionStart', function () {
+        const count = $('.main-swiper-fractions span').text().split('/');
+        $('.main-swiper-fractions span').html(this.realIndex + 1 + '/' + count[1]);
     });
 
     function render(){
