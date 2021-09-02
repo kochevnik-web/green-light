@@ -1,14 +1,42 @@
-import Swiper from 'swiper';
+import Swiper from 'swiper/bundle';
 
 jQuery(document).ready(function( $ ) {
 
-    new Swiper('.swiper', {
+    const globalObj = {
+        isMobile: false
+    }
 
-        // Navigation arrows
+    new Swiper('.main-swiper', {
+        loop: true,
+
+        pagination: {
+            el: ".swiper-pagination",
+            type: "progressbar",
+        },
+
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.main-swiper-buttons .swiper-button-next',
+            prevEl: '.main-swiper-buttons .swiper-button-prev',
         },
     });
+
+    function render(){
+        autoHeightSlider();
+        setIsMobile();
+    }
+
+    function autoHeightSlider(){
+        $('#main').css({fontSize: globalObj.isMobile ? '10px' : window.innerWidth / 192});
+    }
+
+    function setIsMobile(){
+        globalObj.isMobile = window.innerWidth < window.innerHeight && window.innerWidth < 768 ? true : false;
+    }
+
+    window.addEventListener('resize', function(){
+        render();
+    });
+
+    render();
 
 });
