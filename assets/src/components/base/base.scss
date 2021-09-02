@@ -8,8 +8,9 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     line-height: 30px;
-    background-color: var(--green);
+    background-color: var(--black);
     color: var(--white);
+    opacity: 0;
 }
 
 .bottom-line {
@@ -25,5 +26,21 @@ body {
         left: 0;
         bottom: 5px;
         background-color: var(--white);
+    }
+}
+
+.arrow-scroll {
+    position: absolute;
+    left: 50%;
+    width: 30px;
+    height: 40px;
+    bottom: 38px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        height: 100%;
     }
 }

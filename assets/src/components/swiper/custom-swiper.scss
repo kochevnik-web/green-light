@@ -92,3 +92,36 @@
         }
     }
 }
+
+.is-mobile {
+    .main-swiper {
+        &-controls {
+            width: 30em;
+            bottom: 15.4em;
+
+            &-wrap {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+
+        &-fractions {
+            display: none;
+        }
+
+        &-buttons {
+            margin: 1.5em 0 0;
+
+            &-wrap {
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 3em;
+                height: 3em;
+            }
+        }
+    }
+}

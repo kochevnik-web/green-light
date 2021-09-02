@@ -1,9 +1,12 @@
 import Swiper from 'swiper/bundle';
 
+import gsap from 'gsap';
+
 jQuery(document).ready(function( $ ) {
 
     const globalObj = {
-        isMobile: false
+        isMobile: false,
+        animate: true
     }
 
     const mainslider = new Swiper('.main-swiper', {
@@ -21,18 +24,28 @@ jQuery(document).ready(function( $ ) {
         },
     });
 
-    mainslider.on('transitionStart', function () {
+    mainslider.on('activeIndexChange', function () {
         const count = $('.main-swiper-fractions span').text().split('/');
         $('.main-swiper-fractions span').html(this.realIndex + 1 + '/' + count[1]);
+        $('.main-text-block').each(function(){
+            $(this).stop().hide();
+        });
+        $('#main-text-' + (this.realIndex + 1)).stop().fadeIn(800);
+        console.log(this.realIndex)
     });
 
     function render(){
-        autoHeightSlider();
         setIsMobile();
+        autoHeightSlider();
     }
 
     function autoHeightSlider(){
-        $('#main').css({fontSize: globalObj.isMobile ? '10px' : window.innerWidth / 192});
+        $('#main').css({fontSize: globalObj.isMobile ? window.innerWidth / 32 : window.innerWidth / 192});
+        if(globalObj.isMobile){
+            $('body').addClass('is-mobile');
+        }else{
+            $('body').removeClass('is-mobile');
+        }
     }
 
     function setIsMobile(){
@@ -42,6 +55,24 @@ jQuery(document).ready(function( $ ) {
     window.addEventListener('resize', function(){
         render();
     });
+
+    if(globalObj.animate){
+        gsap.from('.arrow-scroll', {
+            y: -30,
+            opacity: 0,
+            duration: 2,
+            ease: "linear",
+            repeat: -1
+        });
+
+        setTimeout(() => {
+            gsap.to('body', {
+                opacity: 1,
+                duration: 0.3,
+                ease: "power3.in",
+            });
+        }, 30);
+    }
 
     render();
 

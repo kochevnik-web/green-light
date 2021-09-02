@@ -20,7 +20,7 @@
         text-transform: uppercase;
         color: var(--grey);
         margin-left: -1em;
-        margin-bottom: 17em;
+        margin-bottom: 26em;
 
         span {
             font-size: 9.3em;
@@ -32,9 +32,16 @@
         line-height: 3.6em;
         width: 102em;
         margin: 0 0 3.5em;
+        position: absolute;
+        bottom: 13.6em;
 
-        span {
+        &-block {
             font-size: 2.4em;
+            display: none;
+
+            &:nth-child(1) {
+                display: block;
+            }
         }
     }
 
@@ -84,6 +91,63 @@
 
         &:hover {
             background-color: rgba($color: #fff, $alpha: 0.1);
+        }
+    }
+}
+
+.is-mobile {
+    .main {
+        &-container {
+            width: 30em;
+        }
+
+        &-title {
+            line-height: 2.6em;
+            margin-left: 0;
+            margin-bottom: 17em;
+
+            span {
+                font-size: 2.4em;
+
+                br {
+                    display: none;
+                }
+            }
+        }
+
+        &-text {
+            width: 30em;
+            line-height: 2em;
+            bottom: 20.5em;
+
+            &-block {
+                font-size: 1.3em;
+            }
+        }
+
+        &-buttons {
+            flex-direction: column;
+            height: 10.7em;
+
+            .main-link-more {
+                span {
+                    font-size: 1.2em;
+                }
+            }
+
+            .main-link-back {
+                width: 20em;
+                height: 3.8em;
+
+                span {
+                    font-size: 1.2em;
+                }
+            }
+        }
+
+        .arrow-scroll {
+            bottom: 2em;
+            height: 3em;
         }
     }
 }
