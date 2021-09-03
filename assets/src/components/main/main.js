@@ -31,7 +31,6 @@ jQuery(document).ready(function( $ ) {
             $(this).stop().hide();
         });
         $('#main-text-' + (this.realIndex + 1)).stop().fadeIn(800);
-        console.log(this.realIndex)
     });
 
     function render(){

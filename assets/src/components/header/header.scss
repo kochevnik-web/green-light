@@ -18,11 +18,20 @@
         justify-content: space-between;
         align-items: center;
         margin: 20px 0 0 0;
+
+        @media (max-width: 768px) {
+            margin: 10px 0 0 0;
+        }
     }
 
     &-logo {
+        @media (max-width: 768px) {
+            width: 155px;
+        }
+
         svg {
             fill: var(--white);
+            width: 100%;
         }
     }
 
@@ -30,6 +39,33 @@
         display: flex;
         align-items: center;
         margin: 0 0 10px 0;
+
+        @media (max-width: 1030px) {
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            background: #0c3a2d;
+            transform: translateY(-100%);
+            // transition: transform 0.4s ease-out;
+
+            &:after {
+                width: 81px;
+                height: 131px;
+                bottom: 0;
+                left: 64%;
+                position: absolute;
+                content: "";
+                background: url(../img/tree-menu.png) no-repeat 50%;
+                background-size: contain;
+            }
+        }
+
+        &.menu-active {
+            // transform: translateY(0);
+        }
     }
 
     &-menu {
@@ -40,6 +76,11 @@
         justify-content: flex-end;
         align-items: center;
 
+        @media (max-width: 1030px) {
+            display: block;
+            padding: 89px 0 20px 60px;
+        }
+
         li {
             margin: 0 50px 0 0;
 
@@ -48,6 +89,10 @@
 
                 @media (max-width: 1200px) {
                     margin: 0 20px 0 0;
+
+                    @media (max-width: 1030px) {
+                        margin: 0 0 10px;
+                    }
                 }
             }
 
@@ -63,6 +108,15 @@
 
                 @media (max-width: 1200px) {
                     font-size: 14px;
+
+                    @media (max-width: 1030px) {
+                        font-size: 18px;
+                        font-weight: 400;
+                    }
+                }
+
+                &:hover {
+                    opacity: 0.8;
                 }
             }
         }
@@ -85,11 +139,25 @@
             @media (max-width: 1200px) {
                 margin: 0 0 0 20px;
                 font-size: 14px;
+
+                @media (max-width: 1030px) {
+                    display: none;
+                }
             }
         }
 
         &:hover {
             background-color: rgba($color: #fff, $alpha: 0.1);
+        }
+    }
+
+    .hamburger {
+        margin-bottom: 10px;
+        display: none;
+        z-index: 1;
+
+        @media (max-width: 1030px) {
+            display: block;
         }
     }
 }
