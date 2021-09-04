@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 7em 0;
+    overflow: hidden;
 
     .about-logo {
         width: 29.3em;
@@ -63,20 +63,100 @@
     #about-1-1 {
         width: 47.2em;
         transform: rotate(-1.39deg);
-        top: 28.4em;
-        left: 111.3em;
+        top: 50%;
+        margin-top: -22.6em;
+        left: 113em;
     }
 
     #about-1-2 {
         width: 52.3em;
         transform: rotate(5.64deg);
-        top: 52.9em;
+        top: 50%;
+        margin-top: 1.8em;
         left: 121.4em;
+    }
+
+    #about-1-3 {
+        display: none;
     }
 }
 
 .about {
     &-container {
         max-width: 119em;
+        padding: 14em 1.5em;
+    }
+}
+
+.is-mobile {
+    #about-1 {
+        .about-container {
+            padding: 1.5em 1.5em;
+        }
+
+        .about-logo {
+            display: none;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 5em 0 0 -0.1em;
+
+            span {
+                font-size: 2em;
+            }
+        }
+
+        .about-subtitle {
+            margin: 2.7em 0 24.2em 0;
+            text-align: center;
+            line-height: 2.4em;
+            width: 100%;
+
+            span {
+                font-size: 2em;
+            }
+        }
+
+        p {
+            color: var(--white);
+            width: 100%;
+            line-height: 2.2em;
+
+            span {
+                font-size: 1.4em;
+            }
+        }
+
+        .about-images {
+            display: none;
+        }
+
+        #about-1-1 {
+            left: 1.2em;
+            top: 29.4em;
+            margin: 0;
+            width: 18.7em;
+            display: block;
+        }
+
+        #about-1-2 {
+            left: 11.9em;
+            top: 35.7em;
+            display: block;
+            width: 19.2em;
+            margin: 0;
+        }
+
+        #about-1-3 {
+            display: block;
+            width: 4.6em;
+            left: 5.8em;
+            top: 37.6em;
+        }
+
+        .arrow-scroll {
+            display: none;
+        }
     }
 }
