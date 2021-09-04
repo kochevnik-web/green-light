@@ -1,6 +1,9 @@
 import Swiper from 'swiper/bundle';
 
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 jQuery(document).ready(function( $ ) {
 
@@ -39,7 +42,7 @@ jQuery(document).ready(function( $ ) {
     }
 
     function autoHeightSlider(){
-        $('#main').css({fontSize: globalObj.isMobile ? window.innerWidth / 32 : window.innerWidth / 192});
+        $('body').css({fontSize: globalObj.isMobile ? window.innerWidth / 32 : window.innerWidth / 192});
         if(globalObj.isMobile){
             $('body').addClass('is-mobile');
         }else{
@@ -56,13 +59,13 @@ jQuery(document).ready(function( $ ) {
     });
 
     if(globalObj.animate){
-        gsap.from('.arrow-scroll', {
-            y: -30,
-            opacity: 0,
-            duration: 2,
-            ease: "linear",
-            repeat: -1
-        });
+        // gsap.from('.arrow-scroll', {
+        //     y: -30,
+        //     opacity: 0,
+        //     duration: 2,
+        //     ease: "linear",
+        //     repeat: -1
+        // });
 
         setTimeout(() => {
             gsap.to('body', {
@@ -72,6 +75,13 @@ jQuery(document).ready(function( $ ) {
             });
         }, 30);
     }
+
+    gsap.utils.toArray("a.scroll-to").forEach(function(a) {
+        a.addEventListener("click", function(e) {
+            e.preventDefault();
+            gsap.to(window, {duration: 1, scrollTo: e.target.getAttribute("href")});
+        });
+    });
 
     render();
 

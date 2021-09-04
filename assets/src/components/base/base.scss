@@ -2,7 +2,8 @@ body {
     --black: #000000;
     --white: #ffffff;
     --green: #6d9773;
-    --greened: #0c3a2d;
+    --green2: #0c3a2d;
+    --green3: #23351a;
     --grey: #f2f2f2;
     --orange: #ffb902;
 
@@ -33,15 +34,18 @@ body {
 .arrow-scroll {
     position: absolute;
     left: 50%;
-    width: 30px;
-    height: 40px;
-    bottom: 38px;
+    width: 3em;
+    height: 4.7em;
+    bottom: 3.8em;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url(../img/arrow-scroll.svg) no-repeat center center;
+    background-size: contain;
 
-    svg {
-        height: 100%;
+    &.arrow-green {
+        background: url(../img/arrow-scroll-green.svg) no-repeat center center;
+        background-size: contain;
     }
 }
