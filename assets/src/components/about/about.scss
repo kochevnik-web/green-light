@@ -81,7 +81,94 @@
     }
 }
 
+#about-2 {
+    background: var(--green);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    .about-wrap {
+        max-width: 119em;
+        position: absolute;
+        top: 50%;
+        margin-top: -16.5em;
+    }
+
+    .about-title {
+        font-weight: 500;
+        color: var(--green2);
+        margin: 0 0 5.6em 29.8em;
+
+        span {
+            font-size: 2.8em;
+        }
+    }
+
+    .about-list {
+        display: flex;
+
+        &-item {
+            color: var(--green2);
+            line-height: 3.1em;
+            margin: 0 0 3.8em 0;
+
+            .disc {
+                width: 1.2em;
+                height: 1.2em;
+                background: var(--orange);
+                display: inline-block;
+                border-radius: 100%;
+                margin: 0 0.6em 0.3em 0.3em;
+            }
+
+            span {
+                font-size: 2.4em;
+            }
+        }
+    }
+
+    .about-left,
+    .about-right {
+        width: 50%;
+    }
+
+    .about-left {
+        margin-right: 3.2em;
+    }
+
+    .about-images {
+        position: absolute;
+        height: auto;
+    }
+
+    #about-2-1 {
+        left: 15em;
+        top: 50%;
+        margin-top: 16.8em;
+        width: 13.4em;
+    }
+
+    #about-2-2 {
+        width: 6.3em;
+        left: 31.7em;
+        top: 50%;
+        margin-top: 25.6em;
+    }
+
+    #about-2-3 {
+        width: 11.4em;
+        left: 165.8em;
+        top: 50%;
+        margin-top: 19.4em;
+    }
+}
+
 .about {
+    background: var(--green);
+
     &-container {
         max-width: 119em;
         padding: 14em 1.5em;
