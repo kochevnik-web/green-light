@@ -10,10 +10,13 @@
     .about-logo {
         width: 29.3em;
         margin: 0 0 6.5em;
+        z-index: 5;
 
         img {
             width: 100%;
             height: auto;
+            position: relative;
+            z-index: 5;
         }
     }
 
@@ -95,15 +98,29 @@
         margin-top: -16.5em;
     }
 
+    .about-logo {
+        width: 29.3em;
+        z-index: 5;
+        display: inline-block;
+        margin: 1.2em 1em 0 0;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
     .about-title {
         font-weight: 500;
         color: var(--green2);
-        margin: 0 0 5.6em 29.8em;
+        margin: 0 0 5.6em 0;
+        display: flex;
+        align-items: center;
 
         span {
             font-size: 2.8em;
 
-            &:first-child {
+            &.hide {
                 display: none;
             }
         }
@@ -258,6 +275,10 @@
             width: 30em;
         }
 
+        .about-logo {
+            display: none;
+        }
+
         .about-title {
             margin: 3.4em 0 9em 0;
             text-align: center;
@@ -267,7 +288,7 @@
             span {
                 font-size: 2em;
 
-                &:first-child {
+                &.hide {
                     display: inline;
                 }
             }

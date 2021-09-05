@@ -64,6 +64,18 @@ window.onload = function() {
                 trigger: '#about-1',
                 start: 'top 35%',
                 end: 'bottom 60%',
+            }
+        });
+
+        gsap.from('#about-2 .about-logo img', {
+            duration: duration,
+            y: -700,
+            opacity: 0,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: '#about-2',
+                start: 'top 35%',
+                end: 'top 90%',
                 // markers: true
             }
         });
