@@ -6,7 +6,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 
     .about-logo {
         width: 29.3em;
@@ -88,7 +87,6 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    overflow: hidden;
 
     .about-wrap {
         max-width: 119em;
@@ -104,6 +102,10 @@
 
         span {
             font-size: 2.8em;
+
+            &:first-child {
+                display: none;
+            }
         }
     }
 
@@ -168,6 +170,7 @@
 
 .about {
     background: var(--green);
+    overflow: hidden;
 
     &-container {
         max-width: 119em;
@@ -195,7 +198,7 @@
         }
 
         .about-subtitle {
-            margin: 2.7em 0 24.2em 0;
+            margin: 2.7em 0 24.4em;
             text-align: center;
             line-height: 2.4em;
             width: 100%;
@@ -207,8 +210,8 @@
 
         p {
             color: var(--white);
-            width: 100%;
-            line-height: 2.2em;
+            width: 85%;
+            line-height: 2em;
 
             span {
                 font-size: 1.4em;
@@ -240,6 +243,84 @@
             width: 4.6em;
             left: 5.8em;
             top: 37.6em;
+        }
+
+        .arrow-scroll {
+            display: none;
+        }
+    }
+
+    #about-2 {
+        .about-wrap {
+            position: relative;
+            margin: 0 auto;
+            padding: 1em;
+            width: 30em;
+        }
+
+        .about-title {
+            margin: 3.4em 0 9em 0;
+            text-align: center;
+            padding: 0 6em;
+            line-height: 2.6em;
+
+            span {
+                font-size: 2em;
+
+                &:first-child {
+                    display: inline;
+                }
+            }
+        }
+
+        .about-list {
+            flex-direction: column;
+
+            &-item {
+                margin: 0 0 8em 0;
+                line-height: 20px;
+
+                .disc {
+                    width: 0.9em;
+                    height: 0.9em;
+                    margin: 0px 0.5em -0.2em 0.1em;
+                }
+
+                span {
+                    font-size: 1.4em;
+                }
+            }
+        }
+
+        .about-left,
+        .about-right {
+            width: 100%;
+        }
+
+        .about-left {
+            margin: 0;
+        }
+
+        #about-2-1 {
+            width: 7.4em;
+            top: -4.3em;
+            left: 23.2em;
+            margin: 0;
+        }
+
+        #about-2-2 {
+            margin: 0;
+            top: 11em;
+            width: 4.6em;
+            left: 2em;
+        }
+
+        #about-2-3 {
+            width: 11.3em;
+            margin: 0;
+            left: 22.7em;
+            top: 40.9em;
+            transform: rotate(-23.59deg);
         }
 
         .arrow-scroll {

@@ -2,4 +2,3 @@
 // import '../components/fancybox/fancybox.js';
 import '../components/main/main.js';
 import '../components/header/header.js';
-import '../components/about/about.js';
