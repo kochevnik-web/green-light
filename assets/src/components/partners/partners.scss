@@ -1,0 +1,61 @@
+.partners {
+    min-height: 100vh;
+    background: var(--white);
+    color: var(--green);
+    padding: 153px 0 45px 0;
+    position: relative;
+
+    &-container {
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    h2 {
+        font-family: Tenor Sans, sans-serif;
+        padding: 0;
+        margin: 0 0 155px 0;
+        text-transform: uppercase;
+        font-weight: 100;
+        text-align: center;
+        font-size: 64px;
+
+        @media (max-width: 900px) {
+            font-size: 46px;
+        }
+    }
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        row-gap: 82px;
+
+        &-item {
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 100%;
+                transition: opacity ease-out 0.3s;
+
+                &.color {
+                    position: relative;
+                    transform: translate(0, 0);
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                &:last-child {
+                    &:hover {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+}
