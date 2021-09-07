@@ -82,7 +82,10 @@ jQuery(document).ready(function( $ ) {
     gsap.utils.toArray("a.scroll-to").forEach(function(a) {
         a.addEventListener("click", function(e) {
             e.preventDefault();
-            gsap.to(window, {duration: 1, scrollTo: e.target.getAttribute("href")});
+            const elem = document.querySelector(e.target.getAttribute("href"));
+            if(elem){
+                gsap.to(window, {duration: 1, scrollTo: elem});
+            }
         });
     });
 

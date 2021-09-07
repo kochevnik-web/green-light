@@ -5,6 +5,7 @@ window.onload = function() {
     const duration = 1;
 
     const header = document.querySelector('header');
+    const menuLinksList = document.querySelectorAll('.header-menu a');
 
     function goOnserver(entries) {
         let isLeaving = false;
@@ -15,26 +16,38 @@ window.onload = function() {
                         const attr = entry.target.getAttribute('data-color-menu');
                         header.classList.add(attr);
                     }
+                    if(entry.target.hasAttribute('id')){
+                        const id = entry.target.id;
+                        document.querySelector('.header-menu a[href="#' + id + '"]').classList.add('bottom-line');
+                    }
                     isLeaving = true;
                   } else if (isLeaving) {
                     if(entry.target.hasAttribute('data-color-menu')){
                         const attr = entry.target.getAttribute('data-color-menu');
-                        header.classList.add(attr);
                         header.classList.remove(attr);
+                    }
+                    if(entry.target.hasAttribute('id')){
+                        const id = entry.target.id;
+                        document.querySelector('.header-menu a[href="#' + id + '"]').classList.remove('bottom-line');
                     }
                     isLeaving = false;
                 }
             });
         }, {
-          rootMargin: '0px 0px -' + (window.innerHeight - 70) + 'px',
+          rootMargin: '-50px 0px -' + (window.innerHeight - 50) + 'px',
         });
     }
 
     Array.from(document.getElementsByTagName('section')).forEach(section => goOnserver(section).observe(section))
 
+    Array.from(menuLinksList).forEach(elem => {
+        elem.addEventListener('click', e => {
+            showHideMenu();
+        })
+    });
 
-    hamburger.addEventListener('click', (e) => {
-
+    function showHideMenu(){
+        if (window.innerWidth > 1020) return;
         hamburger.classList.toggle('is-active');
         document.querySelector('body').classList.toggle('show-menu');
         document.querySelector('.header-right').classList.toggle('menu-active');
@@ -49,6 +62,10 @@ window.onload = function() {
                 ease: "power3.in",
             });
         }
+    }
+
+    hamburger.addEventListener('click', (e) => {
+        showHideMenu()
     });
 
     if(window.innerWidth >= 768) {

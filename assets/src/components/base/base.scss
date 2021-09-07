@@ -29,6 +29,12 @@ body {
         bottom: 5px;
         background-color: var(--white);
     }
+
+    .green-menu & {
+        &::after {
+            background-color: var(--green);
+        }
+    }
 }
 
 .arrow-scroll {
