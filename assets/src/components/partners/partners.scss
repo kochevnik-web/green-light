@@ -5,10 +5,18 @@
     padding: 153px 0 45px 0;
     position: relative;
 
+    @media (max-width: 768px) {
+        padding: 91px 0 0;
+    }
+
     &-container {
         max-width: 1360px;
         margin: 0 auto;
         padding: 0 15px;
+
+        @media (max-width: 768px) {
+            padding: 0 10px;
+        }
     }
 
     h2 {
@@ -22,6 +30,11 @@
 
         @media (max-width: 900px) {
             font-size: 46px;
+
+            @media (max-width: 768px) {
+                font-size: 30px;
+                margin: 0 0 24px;
+            }
         }
     }
 
@@ -30,6 +43,12 @@
         grid-template-columns: repeat(3, 1fr);
         column-gap: 20px;
         row-gap: 82px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 20px;
+            row-gap: 63px;
+        }
 
         &-item {
             position: relative;
@@ -44,18 +63,55 @@
 
                 &.color {
                     position: relative;
-                    transform: translate(0, 0);
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
                 }
 
-                &:last-child {
-                    &:hover {
+                &.w-70 {
+                    @media (max-width: 768px) {
+                        width: 70%;
+                    }
+                }
+
+                &:not(.color) {
+                    @media (max-width: 768px) {
                         opacity: 0;
                     }
                 }
             }
+
+            span {
+                font-size: 14px;
+                position: absolute;
+                bottom: -19px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                color: var(--black);
+                opacity: 0;
+                transition: opacity ease-out 0.3s;
+
+                @media (max-width: 768px) {
+                    font-size: 10px;
+                    line-height: 12px;
+                    opacity: 1;
+                    width: 100%;
+                }
+            }
+
+            &:hover {
+                img:not(.color) {
+                    opacity: 0;
+                }
+
+                span {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .arrow-scroll {
+        @media (max-width: 768px) {
+            display: none;
         }
     }
 }
