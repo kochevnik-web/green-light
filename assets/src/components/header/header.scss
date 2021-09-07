@@ -30,6 +30,7 @@
         }
 
         svg {
+            transition: fill ease-out 0.8s;
             fill: var(--white);
             width: 100%;
         }
@@ -100,6 +101,7 @@
                 font-size: 16px;
                 font-weight: 500;
                 text-decoration: none;
+                transition: color ease-out 0.8s;
 
                 @media (max-width: 1200px) {
                     font-size: 14px;
@@ -113,6 +115,45 @@
                 &:hover {
                     opacity: 0.8;
                 }
+            }
+        }
+    }
+
+    &.green-menu {
+        .header {
+            &-menu {
+                li {
+                    a {
+                        color: var(--green);
+
+                        @media (max-width: 1030px) {
+                            color: var(--white);
+                        }
+                    }
+                }
+            }
+
+            &-logo {
+                svg {
+                    fill: var(--green);
+                }
+            }
+
+            &-link-more {
+                color: var(--green);
+                border: 1px solid var(--green);
+
+                &:hover {
+                    background-color: rgba($color: #6d9773, $alpha: 0.1);
+                }
+            }
+        }
+
+        .hamburger {
+            .hamburger-inner,
+            .hamburger-inner:after,
+            .hamburger-inner:before {
+                background-color: var(--green);
             }
         }
     }
