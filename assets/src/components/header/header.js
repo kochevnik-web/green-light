@@ -7,28 +7,34 @@ window.onload = function() {
     const header = document.querySelector('header');
     const menuLinksList = document.querySelectorAll('.header-menu a');
 
-    function goOnserver(entries) {
+    function goOnserver(entries, color = false) {
         let isLeaving = false;
         return new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    if(entry.target.hasAttribute('data-color-menu')){
-                        const attr = entry.target.getAttribute('data-color-menu');
-                        header.classList.add(attr);
-                    }
-                    if(entry.target.hasAttribute('id')){
-                        const id = entry.target.id;
-                        document.querySelector('.header-menu a[href="#' + id + '"]').classList.add('bottom-line');
+                    if(color){
+                        if(entry.target.hasAttribute('data-color-menu')){
+                            const attr = entry.target.getAttribute('data-color-menu');
+                            header.classList.add(attr);
+                        }
+                    }else{
+                        if(entry.target.hasAttribute('id')){
+                            const id = entry.target.id;
+                            document.querySelector('.header-menu a[href="#' + id + '"]').classList.add('bottom-line');
+                        }
                     }
                     isLeaving = true;
-                  } else if (isLeaving) {
-                    if(entry.target.hasAttribute('data-color-menu')){
-                        const attr = entry.target.getAttribute('data-color-menu');
-                        header.classList.remove(attr);
-                    }
-                    if(entry.target.hasAttribute('id')){
-                        const id = entry.target.id;
-                        document.querySelector('.header-menu a[href="#' + id + '"]').classList.remove('bottom-line');
+                } else if (isLeaving) {
+                    if(color){
+                        if(entry.target.hasAttribute('data-color-menu')){
+                            const attr = entry.target.getAttribute('data-color-menu');
+                            header.classList.remove(attr);
+                        }
+                    }else{
+                        if(entry.target.hasAttribute('id')){
+                            const id = entry.target.id;
+                            document.querySelector('.header-menu a[href="#' + id + '"]').classList.remove('bottom-line');
+                        }
                     }
                     isLeaving = false;
                 }
@@ -38,7 +44,8 @@ window.onload = function() {
         });
     }
 
-    Array.from(document.getElementsByTagName('section')).forEach(section => goOnserver(section).observe(section))
+    Array.from(document.querySelectorAll('section.page-item')).forEach(section => goOnserver(section).observe(section))
+    Array.from(document.querySelectorAll('.change-color')).forEach(elem => goOnserver(elem, true).observe(elem))
 
     Array.from(menuLinksList).forEach(elem => {
         elem.addEventListener('click', e => {
