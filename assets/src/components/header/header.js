@@ -18,6 +18,7 @@ window.onload = function() {
     function clearServicesClasses(){
         servicesIner.classList.remove('services-menu-green');
         servicesIner.classList.remove('services-menu-green2');
+        servicesIner.classList.remove('services-menu-grey');
     }
 
     function clearActiveMenuItem(){
