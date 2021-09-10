@@ -199,6 +199,11 @@
         width: 23.5em;
         height: auto;
         z-index: 5;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 
     #services-menu {

@@ -132,5 +132,36 @@ window.onload = function() {
                 // markers: true
             }
         });
+
+        const servicesElems = Array.from(document.querySelectorAll('.services-page-elem'));
+        const servicesMenu = document.getElementById('services-menu');
+        const trophy = document.getElementById('trophy');
+
+        gsap.to('.services-menu-iner', {
+            ease: "none",
+            scrollTrigger: {
+                trigger: '#services-menu',
+                endTrigger: servicesElems[servicesElems.length - 1],
+                start: 'top ' + servicesMenu.offsetTop + 'px',
+                end: 'top top',
+                pin: true,
+                scrub: 1,
+                // markers: true
+            }
+        });
+
+        gsap.to('#trophy-img', {
+            ease: "none",
+            rotate: (20 * (servicesElems.length - 1)) + 'deg',
+            scrollTrigger: {
+                trigger: '#trophy',
+                endTrigger: servicesElems[servicesElems.length - 1],
+                start: 'top ' + trophy.offsetTop + 'px',
+                end: 'top top',
+                pin: true,
+                scrub: true,
+                // markers: true
+            }
+        });
     }
 }
