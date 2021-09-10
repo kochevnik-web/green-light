@@ -8,15 +8,27 @@ window.onload = function() {
     const menuLinksList = document.querySelectorAll('.header-menu a');
     const servicesMenu = document.getElementById('services-menu');
     const servicesElems = Array.from(document.querySelectorAll('.services-page-elem'));
+    const servicesIner = document.getElementById('services');
 
     function clearHeaderClasses(){
         header.classList.remove('white-menu');
         header.classList.remove('green-menu');
     }
 
+    function clearServicesClasses(){
+        servicesIner.classList.remove('services-menu-green');
+        servicesIner.classList.remove('services-menu-green2');
+    }
+
     function clearActiveMenuItem(){
         Array.from(document.querySelectorAll('.header a')).forEach(a => {
             a.classList.remove('bottom-line');
+        });
+    }
+
+    function clearActiveMenuItemServices(){
+        Array.from(document.querySelectorAll('#services-menu li')).forEach(a => {
+            a.classList.remove('active');
         });
     }
 
@@ -27,15 +39,15 @@ window.onload = function() {
             scrollTrigger: {
                 trigger: section,
                 start: 'top-=10px top',
-                end: 'bottom top',
+                end: 'bottom-=10px top',
                 onEnter: () => {
                     clearActiveMenuItem();
-                    console.log('onEnter');
+                    // console.log('onEnter');
                     document.querySelector('.header-menu a[href="#' + section.id + '"]').classList.add('bottom-line');
                 },
                 onEnterBack: () => {
                     clearActiveMenuItem();
-                    console.log('onEnterBack');
+                    // console.log('onEnterBack');
                     document.querySelector('.header-menu a[href="#' + section.id + '"]').classList.add('bottom-line');
                 },
                 onLeave: () => {
@@ -43,8 +55,8 @@ window.onload = function() {
                     //console.log('onLeave');
                 },
                 onLeaveBack: () => {
-                    console.log('onLeaveBack');
-                    //clearActiveMenuItem();
+                    // console.log('onLeaveBack');
+                    clearActiveMenuItem();
                 },
                 // markers: true
             },
@@ -57,8 +69,8 @@ window.onload = function() {
             ease: "none",
             scrollTrigger: {
                 trigger: section,
-                start: '50px 50px',
-                end: 'bottom 50px',
+                start: 'top-=50px top',
+                end: 'bottom-=50px top',
                 onEnter: () => {
                     if(section.hasAttribute('data-color-menu')){
                         clearHeaderClasses();
@@ -72,6 +84,89 @@ window.onload = function() {
                         const attr = section.getAttribute('data-color-menu');
                         header.classList.add(attr);
                     }
+                },
+                onLeave: () => {
+                    clearHeaderClasses()
+                },
+                onLeaveBack: () => {
+                    clearHeaderClasses()
+                },
+                // markers: true
+            }
+        });
+    });
+
+    servicesElems.forEach(elem => {
+        gsap.to(elem, {
+            ease: "none",
+            scrollTrigger: {
+                trigger: elem,
+                start: 'top-=10px top',
+                end: 'bottom-=10px top',
+                onEnter: () => {
+                    console.log('onEnter');
+                    clearActiveMenuItemServices();
+                    // console.log('onEnter');
+                    document.querySelector('#services-menu a[href="#' + elem.id + '"]').parentElement.classList.add('active');
+                },
+                onEnterBack: () => {
+                    console.log('onEnterBack');
+                    clearActiveMenuItemServices();
+                    // console.log('onEnter');
+                    document.querySelector('#services-menu a[href="#' + elem.id + '"]').parentElement.classList.add('active');
+                },
+                onLeave: () => {
+                    clearActiveMenuItemServices();
+                    console.log('onLeave');
+                },
+                onLeaveBack: () => {
+                    clearActiveMenuItemServices();
+                    console.log('onLeaveBack');
+                },
+                // markers: true
+            },
+        });
+    });
+
+    Array.from(document.querySelectorAll('.change-color-services')).forEach(section => {
+
+        gsap.to(section, {
+            ease: "none",
+            scrollTrigger: {
+                trigger: section,
+                start: 'top-=50px top',
+                end: 'bottom-=50px top',
+                onEnter: () => {
+                    if(section.hasAttribute('data-color-services')){
+                        servicesIner.style.backgroundColor = '#505050';
+                        const attr = section.getAttribute('data-color-services');
+                        servicesIner.style.backgroundColor = attr;
+                    }
+                    if(section.hasAttribute('data-color-services-menu')){
+                        clearServicesClasses();
+                        const attr = section.getAttribute('data-color-services-menu');
+                        servicesIner.classList.add(attr);
+                    }
+                },
+                onEnterBack: () => {
+                    if(section.hasAttribute('data-color-services')){
+                        servicesIner.style.backgroundColor = '#505050';
+                        const attr = section.getAttribute('data-color-services');
+                        servicesIner.style.backgroundColor = attr;
+                    }
+                    if(section.hasAttribute('data-color-services-menu')){
+                        clearServicesClasses();
+                        const attr = section.getAttribute('data-color-services-menu');
+                        servicesIner.classList.add(attr);
+                    }
+                },
+                onLeave: () => {
+                    servicesIner.style.backgroundColor = '#505050';
+                    clearServicesClasses();
+                },
+                onLeaveBack: () => {
+                    servicesIner.style.backgroundColor = '#505050';
+                    clearServicesClasses();
                 },
                 // markers: true
             }
