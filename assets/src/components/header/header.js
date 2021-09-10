@@ -6,46 +6,77 @@ window.onload = function() {
 
     const header = document.querySelector('header');
     const menuLinksList = document.querySelectorAll('.header-menu a');
+    const servicesMenu = document.getElementById('services-menu');
+    const servicesElems = Array.from(document.querySelectorAll('.services-page-elem'));
 
-    function goOnserver(entries, color = false) {
-        let isLeaving = false;
-        return new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if(color){
-                        if(entry.target.hasAttribute('data-color-menu')){
-                            const attr = entry.target.getAttribute('data-color-menu');
-                            header.classList.add(attr);
-                        }
-                    }else{
-                        if(entry.target.hasAttribute('id')){
-                            const id = entry.target.id;
-                            document.querySelector('.header-menu a[href="#' + id + '"]').classList.add('bottom-line');
-                        }
-                    }
-                    isLeaving = true;
-                } else if (isLeaving) {
-                    if(color){
-                        if(entry.target.hasAttribute('data-color-menu')){
-                            const attr = entry.target.getAttribute('data-color-menu');
-                            header.classList.remove(attr);
-                        }
-                    }else{
-                        if(entry.target.hasAttribute('id')){
-                            const id = entry.target.id;
-                            document.querySelector('.header-menu a[href="#' + id + '"]').classList.remove('bottom-line');
-                        }
-                    }
-                    isLeaving = false;
-                }
-            });
-        }, {
-          rootMargin: '-50px 0px -' + (window.innerHeight - 50) + 'px',
+    function clearHeaderClasses(){
+        header.classList.remove('white-menu');
+        header.classList.remove('green-menu');
+    }
+
+    function clearActiveMenuItem(){
+        Array.from(document.querySelectorAll('.header a')).forEach(a => {
+            a.classList.remove('bottom-line');
         });
     }
 
-    Array.from(document.querySelectorAll('section.page-item')).forEach(section => goOnserver(section).observe(section))
-    Array.from(document.querySelectorAll('.change-color')).forEach(elem => goOnserver(elem, true).observe(elem))
+    Array.from(document.querySelectorAll('.page-item')).forEach(section => {
+
+        gsap.to(section, {
+            ease: "none",
+            scrollTrigger: {
+                trigger: section,
+                start: 'top-=10px top',
+                end: 'bottom top',
+                onEnter: () => {
+                    clearActiveMenuItem();
+                    console.log('onEnter');
+                    document.querySelector('.header-menu a[href="#' + section.id + '"]').classList.add('bottom-line');
+                },
+                onEnterBack: () => {
+                    clearActiveMenuItem();
+                    console.log('onEnterBack');
+                    document.querySelector('.header-menu a[href="#' + section.id + '"]').classList.add('bottom-line');
+                },
+                onLeave: () => {
+                    clearActiveMenuItem();
+                    //console.log('onLeave');
+                },
+                onLeaveBack: () => {
+                    console.log('onLeaveBack');
+                    //clearActiveMenuItem();
+                },
+                // markers: true
+            },
+        });
+    });
+
+    Array.from(document.querySelectorAll('.change-color')).forEach(section => {
+
+        gsap.to(section, {
+            ease: "none",
+            scrollTrigger: {
+                trigger: section,
+                start: '50px 50px',
+                end: 'bottom 50px',
+                onEnter: () => {
+                    if(section.hasAttribute('data-color-menu')){
+                        clearHeaderClasses();
+                        const attr = section.getAttribute('data-color-menu');
+                        header.classList.add(attr);
+                    }
+                },
+                onEnterBack: () => {
+                    if(section.hasAttribute('data-color-menu')){
+                        clearHeaderClasses();
+                        const attr = section.getAttribute('data-color-menu');
+                        header.classList.add(attr);
+                    }
+                },
+                // markers: true
+            }
+        });
+    });
 
     Array.from(menuLinksList).forEach(elem => {
         elem.addEventListener('click', e => {
@@ -133,8 +164,6 @@ window.onload = function() {
             }
         });
 
-        const servicesElems = Array.from(document.querySelectorAll('.services-page-elem'));
-        const servicesMenu = document.getElementById('services-menu');
         const trophy = document.getElementById('trophy');
 
         gsap.to('.services-menu-iner', {
