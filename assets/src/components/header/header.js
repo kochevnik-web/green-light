@@ -75,15 +75,23 @@ window.onload = function() {
                 onEnter: () => {
                     if(section.hasAttribute('data-color-menu')){
                         clearHeaderClasses();
-                        const attr = section.getAttribute('data-color-menu');
-                        header.classList.add(attr);
+                        if(servicesIner.contains(section) && window.innerWidth <= 768){
+                            header.classList.add('green-menu');
+                        }else{
+                            const attr = section.getAttribute('data-color-menu');
+                            header.classList.add(attr);
+                        }
                     }
                 },
                 onEnterBack: () => {
                     if(section.hasAttribute('data-color-menu')){
                         clearHeaderClasses();
-                        const attr = section.getAttribute('data-color-menu');
-                        header.classList.add(attr);
+                        if(servicesIner.contains(section) && window.innerWidth <= 768){
+                            header.classList.add('green-menu');
+                        }else{
+                            const attr = section.getAttribute('data-color-menu');
+                            header.classList.add(attr);
+                        }
                     }
                 },
                 onLeave: () => {
@@ -129,51 +137,6 @@ window.onload = function() {
         });
     });
 
-    Array.from(document.querySelectorAll('.change-color-services')).forEach(section => {
-
-        gsap.to(section, {
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                start: 'top-=50px top',
-                end: 'bottom-=50px top',
-                onEnter: () => {
-                    if(section.hasAttribute('data-color-services')){
-                        servicesIner.style.backgroundColor = '#505050';
-                        const attr = section.getAttribute('data-color-services');
-                        servicesIner.style.backgroundColor = attr;
-                    }
-                    if(section.hasAttribute('data-color-services-menu')){
-                        clearServicesClasses();
-                        const attr = section.getAttribute('data-color-services-menu');
-                        servicesIner.classList.add(attr);
-                    }
-                },
-                onEnterBack: () => {
-                    if(section.hasAttribute('data-color-services')){
-                        servicesIner.style.backgroundColor = '#505050';
-                        const attr = section.getAttribute('data-color-services');
-                        servicesIner.style.backgroundColor = attr;
-                    }
-                    if(section.hasAttribute('data-color-services-menu')){
-                        clearServicesClasses();
-                        const attr = section.getAttribute('data-color-services-menu');
-                        servicesIner.classList.add(attr);
-                    }
-                },
-                onLeave: () => {
-                    servicesIner.style.backgroundColor = '#505050';
-                    clearServicesClasses();
-                },
-                onLeaveBack: () => {
-                    servicesIner.style.backgroundColor = '#505050';
-                    clearServicesClasses();
-                },
-                // markers: true
-            }
-        });
-    });
-
     Array.from(menuLinksList).forEach(elem => {
         elem.addEventListener('click', e => {
             showHideMenu();
@@ -203,6 +166,52 @@ window.onload = function() {
     });
 
     if(window.innerWidth >= 768) {
+
+        Array.from(document.querySelectorAll('.change-color-services')).forEach(section => {
+
+            gsap.to(section, {
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top-=50px top',
+                    end: 'bottom-=50px top',
+                    onEnter: () => {
+                        if(section.hasAttribute('data-color-services')){
+                            servicesIner.style.backgroundColor = '#505050';
+                            const attr = section.getAttribute('data-color-services');
+                            servicesIner.style.backgroundColor = attr;
+                        }
+                        if(section.hasAttribute('data-color-services-menu')){
+                            clearServicesClasses();
+                            const attr = section.getAttribute('data-color-services-menu');
+                            servicesIner.classList.add(attr);
+                        }
+                    },
+                    onEnterBack: () => {
+                        if(section.hasAttribute('data-color-services')){
+                            servicesIner.style.backgroundColor = '#505050';
+                            const attr = section.getAttribute('data-color-services');
+                            servicesIner.style.backgroundColor = attr;
+                        }
+                        if(section.hasAttribute('data-color-services-menu')){
+                            clearServicesClasses();
+                            const attr = section.getAttribute('data-color-services-menu');
+                            servicesIner.classList.add(attr);
+                        }
+                    },
+                    onLeave: () => {
+                        servicesIner.style.backgroundColor = '#505050';
+                        clearServicesClasses();
+                    },
+                    onLeaveBack: () => {
+                        servicesIner.style.backgroundColor = '#505050';
+                        clearServicesClasses();
+                    },
+                    // markers: true
+                }
+            });
+        });
+
         gsap.from('#about-1-2', {
             duration: duration,
             y: '30em',
