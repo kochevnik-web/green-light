@@ -113,24 +113,22 @@ window.onload = function() {
                 start: 'top-=10px top',
                 end: 'bottom-=10px top',
                 onEnter: () => {
-                    console.log('onEnter');
                     clearActiveMenuItemServices();
                     // console.log('onEnter');
                     document.querySelector('#services-menu a[href="#' + elem.id + '"]').parentElement.classList.add('active');
                 },
                 onEnterBack: () => {
-                    console.log('onEnterBack');
                     clearActiveMenuItemServices();
                     // console.log('onEnter');
                     document.querySelector('#services-menu a[href="#' + elem.id + '"]').parentElement.classList.add('active');
                 },
                 onLeave: () => {
                     clearActiveMenuItemServices();
-                    console.log('onLeave');
+                    // console.log('onLeave');
                 },
                 onLeaveBack: () => {
                     clearActiveMenuItemServices();
-                    console.log('onLeaveBack');
+                    // console.log('onLeaveBack');
                 },
                 // markers: true
             },
@@ -141,6 +139,21 @@ window.onload = function() {
         elem.addEventListener('click', e => {
             showHideMenu();
         })
+    });
+
+    $(document).on('click', '#location-map [fill="#6D9773"]', function(e) {
+        $('.location-modal').fadeOut(333);
+        const modal = $('.location-modal[data-location="' + $(this).attr('id') + '"]');
+        const t = $(this);
+        const parent = t.parent().parent();
+        const left = window.innerWidth <= 768 ? '50%' : t.offset().left - parent.offset().left;
+        const top = window.innerWidth <= 768 ? 0 : t.offset().top - parent.offset().top - modal.height() - 15;
+        const transform = window.innerWidth <= 768 ? 'translate(-50%, 0);' : null;
+        modal.css({left, top, transform}).fadeIn(333);
+    });
+
+    $(document).on('click', '.location-modal button[type="close"]', function(e) {
+        $('.location-modal').fadeOut(333);
     });
 
     function showHideMenu(){
