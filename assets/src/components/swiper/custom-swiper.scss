@@ -59,7 +59,8 @@
             cursor: pointer;
             border: 1px solid var(--grey);
             border-radius: 100%;
-            background: url(../img/arrow-slider.svg) no-repeat center center;
+            background: var(--grey) url(../img/arrow-slider.svg) no-repeat
+                center center;
             background-size: 70%;
 
             &:hover {
@@ -89,6 +90,110 @@
             height: 100%;
             transform: translate3d(0px, 0px, 0px) scaleX(0.666667) scaleY(1);
             transform-origin: left top;
+        }
+    }
+}
+
+.projects-swiper {
+    overflow: hidden;
+    position: relative;
+
+    .swiper-slide {
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    .swiper-slide-title {
+        color: var(--green3);
+        font-size: 28px;
+        font-weight: 500;
+        text-align: center;
+        min-height: 64px;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+            padding: 10px 0 10px;
+        }
+    }
+
+    &-buttons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 2;
+
+        @media (max-width: 768px) {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 62px;
+            height: 62px;
+            background-color: var(--grey);
+            background-image: url(../img/project-slider-arrow.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            border-radius: 62px;
+            border: 1px solid var(--green2);
+
+            @media (max-width: 768px) {
+                width: 30px;
+                height: 30px;
+                margin: 0 15px 0 0;
+                border-radius: 30px;
+                background-size: 65%;
+            }
+        }
+
+        .swiper-button-next {
+            transform: rotate(180deg);
+
+            @media (max-width: 768px) {
+                width: 30px;
+                height: 30px;
+                margin: 0;
+            }
+        }
+    }
+
+    &-img {
+        margin: 63px 0 0 0;
+        position: relative;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &-more {
+        color: var(--white);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 500;
+        border: 1px solid var(--white);
+        padding: 8px 25px;
+        border-radius: 25px;
+        position: absolute;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba($color: #000000, $alpha: 0.4);
+
+        &:hover {
+            background: rgba($color: #000000, $alpha: 1);
         }
     }
 }

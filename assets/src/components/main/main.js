@@ -27,6 +27,16 @@ jQuery(document).ready(function( $ ) {
         },
     });
 
+    const projectsSwiper = new Swiper('.projects-swiper', {
+        loop: true,
+        touchRatio: globalObj.isMobile,
+
+        navigation: {
+            nextEl: '.projects-swiper-buttons .swiper-button-next',
+            prevEl: '.projects-swiper-buttons .swiper-button-prev',
+        },
+    });
+
     mainslider.on('activeIndexChange', function () {
         const count = $('.main-swiper-fractions span').text().split('/');
         $('.main-swiper-fractions span').html(this.realIndex + 1 + '/' + count[1]);
