@@ -1,4 +1,5 @@
 import Swiper from 'swiper/bundle';
+import {Fancybox} from "@fancyapps/ui";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
