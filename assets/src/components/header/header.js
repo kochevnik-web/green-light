@@ -145,9 +145,7 @@ window.onload = function() {
         const screenWidth = window.innerWidth;
         const elem = document.querySelector('.project-line-images');
         const container = document.querySelector('.project-container');
-        console.log(elem.getBoundingClientRect())
-        console.log(container.getBoundingClientRect())
-        if(elem){
+        if(elem && container){
             elem.style.transform = 'translateX(' + ((container.getBoundingClientRect().x - 15) * -1) + 'px)';
             elem.style.width = (screenWidth - 50) + 'px';
         }

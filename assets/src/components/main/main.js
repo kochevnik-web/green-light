@@ -83,13 +83,13 @@ jQuery(document).ready(function( $ ) {
     });
 
     if(globalObj.animate){
-        // gsap.from('.arrow-scroll', {
-        //     y: -30,
-        //     opacity: 0,
-        //     duration: 2,
-        //     ease: "linear",
-        //     repeat: -1
-        // });
+        gsap.from('.arrow-scroll', {
+            y: -30,
+            opacity: 0,
+            duration: 2,
+            ease: "linear",
+            repeat: -1
+        });
 
         setTimeout(() => {
             gsap.to('body', {
