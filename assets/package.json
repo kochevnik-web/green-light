@@ -33,6 +33,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@fancyapps/ui": "^4.0.4",
     "gsap": "^3.7.1",
     "swiper": "^6.5.7"
   }
