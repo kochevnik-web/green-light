@@ -141,6 +141,25 @@ window.onload = function() {
         })
     });
 
+    function scrollGalary() {
+        const screenWidth = window.innerWidth;
+        const elem = document.querySelector('.project-line-images');
+        const container = document.querySelector('.project-container');
+        console.log(elem.getBoundingClientRect())
+        console.log(container.getBoundingClientRect())
+        if(elem){
+            elem.style.transform = 'translateX(' + ((container.getBoundingClientRect().x - 15) * -1) + 'px)';
+            elem.style.width = (screenWidth - 50) + 'px';
+        }
+    }
+
+    document.addEventListener('resize', scrollGalary());
+
+    scrollGalary();
+
+    let container = document.getElementById("container");
+
+
     $(document).on('click', '#location-map [fill="#6D9773"]', function(e) {
         $('.location-modal').fadeOut(333);
         const modal = $('.location-modal[data-location="' + $(this).attr('id') + '"]');

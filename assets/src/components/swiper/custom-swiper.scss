@@ -59,8 +59,7 @@
             cursor: pointer;
             border: 1px solid var(--grey);
             border-radius: 100%;
-            background: var(--grey) url(../img/arrow-slider.svg) no-repeat
-                center center;
+            background: url(../img/arrow-slider.svg) no-repeat center center;
             background-size: 70%;
 
             &:hover {

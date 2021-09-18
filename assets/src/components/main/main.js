@@ -37,6 +37,16 @@ jQuery(document).ready(function( $ ) {
         },
     });
 
+    if(window.innerWidth > 768) {
+        var projectLineImages = new Swiper(".project-line-images", {
+            slidesPerView: "auto",
+            freeMode: true,
+            mousewheel: {
+              releaseOnEdges: true,
+            },
+        });
+    }
+
     mainslider.on('activeIndexChange', function () {
         const count = $('.main-swiper-fractions span').text().split('/');
         $('.main-swiper-fractions span').html(this.realIndex + 1 + '/' + count[1]);
