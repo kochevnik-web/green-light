@@ -1,0 +1,168 @@
+.team {
+    overflow: hidden;
+    position: relative;
+    background-color: #bb8a52;
+    color: var(--grey);
+    padding: 24.5em 0;
+    height: 200em;
+
+    &-container {
+        width: 100%;
+        padding: 0 1em;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: "Tenor Sans", sans-serif;
+        text-transform: uppercase;
+        color: var(--orange);
+        font-weight: 100;
+
+        span {
+            font-size: 3.6em;
+        }
+    }
+
+    &-subtitle {
+        text-align: center;
+        font-weight: 500;
+        margin: 2em 0 0;
+
+        span {
+            font-size: 2.8em;
+        }
+    }
+
+    &-content {
+        position: relative;
+        line-height: 1.4;
+        width: 100%;
+        height: 100%;
+    }
+
+    &-person {
+        text-align: center;
+        width: 32.5em;
+        position: absolute;
+
+        &__image {
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        &__name {
+            font-family: "Tenor Sans", sans-serif;
+            text-transform: uppercase;
+            color: var(--orange);
+            font-weight: 100;
+            color: var(--green2);
+            margin: 5em 0 0;
+
+            span {
+                font-size: 3em;
+            }
+        }
+
+        &__position {
+            font-style: italic;
+            font-weight: 500;
+            margin: 0 0 4.5em;
+
+            span {
+                font-size: 2em;
+            }
+        }
+
+        &__description {
+            color: var(--white);
+
+            span {
+                font-size: 2.2em;
+            }
+        }
+
+        &.person-1 {
+            top: 15em;
+            left: 78.7em;
+        }
+
+        &.person-2 {
+            top: 26.7em;
+            left: 119.9em;
+        }
+
+        &.person-3 {
+            top: 50em;
+            left: 38em;
+        }
+
+        &.person-4 {
+            top: 89.3em;
+            left: 78.8em;
+        }
+
+        &.person-5 {
+            top: 113.5em;
+            left: 120.7em;
+        }
+
+        &.person-6 {
+            top: 140.3em;
+            left: 39.4em;
+        }
+    }
+}
+
+.is-mobile {
+    .team {
+        padding: 10.5em 0;
+        height: auto;
+
+        h1 {
+            span {
+                font-size: 1.5em;
+            }
+        }
+
+        &-subtitle {
+            margin: 1em 0 7em;
+
+            span {
+                font-size: 1.8em;
+            }
+        }
+
+        &-person {
+            position: static;
+            width: auto;
+            margin: 0 0 7em;
+
+            &__name {
+                margin: 1em 0 0;
+
+                span {
+                    font-size: 2em;
+                }
+            }
+
+            &__position {
+                margin: 0 0 1.4em;
+
+                span {
+                    font-size: 1.4em;
+                }
+            }
+
+            &__description {
+                span {
+                    font-size: 1.4em;
+                }
+            }
+        }
+    }
+}
