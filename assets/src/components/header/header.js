@@ -167,6 +167,34 @@ window.onload = function() {
     let globalCountTree = 246.1;
     let globalCountY = 11030971;
 
+    gsap.from('#count-tree span', {
+        textContent: 0,
+        duration: 1,
+        ease: "power1.in",
+        snap: { textContent: 1 },
+        scrollTrigger: {
+            trigger: '.location-footer',
+            start: 'top bottom',
+            end: 'bottom top',
+            // markers: true
+        }
+    });
+
+    gsap.from('#count-y', {
+        textContent: 0,
+        duration: 1,
+        ease: "power1.in",
+        snap: { textContent: 1 },
+        onUpdate: function() {
+            this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent))
+        },
+        scrollTrigger: {
+            trigger: '.location-footer',
+            start: 'top bottom',
+            end: 'bottom top',
+        }
+    });
+
     $(document).on('click', '#location-map [fill="#6D9773"]', function(e) {
         $('.location-modal').fadeOut(333);
         const modal = $('.location-modal[data-location="' + $(this).attr('id') + '"]');
@@ -190,9 +218,9 @@ window.onload = function() {
             ease: "power1.in",
             snap: { textContent: 1 },
             onComplete: () => globalCountY = countY,
-                onUpdate: function() {
-                  this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent))
-                }
+            onUpdate: function() {
+                this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent))
+            }
 
         });
 
