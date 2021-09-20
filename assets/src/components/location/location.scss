@@ -124,13 +124,11 @@
             margin: 0 0 10px 0;
         }
 
-        &-body {
-        }
-
         &-table {
             font-size: 14px;
             color: var(--black);
             line-height: 16px;
+            margin: 0 0 20px;
 
             .row {
                 border-bottom: 1px solid var(--green2);

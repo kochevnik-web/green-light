@@ -160,10 +160,42 @@ window.onload = function() {
 
     let container = document.getElementById("container");
 
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
+    let globalCountTree = 246.1;
+    let globalCountY = 11030971;
 
     $(document).on('click', '#location-map [fill="#6D9773"]', function(e) {
         $('.location-modal').fadeOut(333);
         const modal = $('.location-modal[data-location="' + $(this).attr('id') + '"]');
+        const countTree = modal.data('count-tree');
+        const countY = modal.data('count-y');
+
+        $('#count-tree span').text(countTree);
+        $('#count-y').text(countY);
+
+        gsap.from('#count-tree span', {
+            textContent: globalCountTree,
+            duration: 1,
+            ease: "power1.in",
+            snap: { textContent: 1 },
+            onComplete: () => globalCountTree = Math.ceil(parseFloat(countTree.replace(',', '.')))
+        });
+
+        gsap.from('#count-y', {
+            textContent: globalCountY,
+            duration: 1,
+            ease: "power1.in",
+            snap: { textContent: 1 },
+            onComplete: () => globalCountY = countY,
+                onUpdate: function() {
+                  this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent))
+                }
+
+        });
+
         const t = $(this);
         const parent = t.parent().parent();
         const left = window.innerWidth <= 768 ? '50%' : t.offset().left - parent.offset().left;

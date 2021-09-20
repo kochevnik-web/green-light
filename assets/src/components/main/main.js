@@ -105,7 +105,7 @@ jQuery(document).ready(function( $ ) {
             e.preventDefault();
             const elem = document.querySelector(e.target.getAttribute("href"));
             if(elem){
-                gsap.to(window, {duration: 1, scrollTo: elem});
+                gsap.to(window, {duration: 1.5, scrollTo: elem});
             }
         });
     });
