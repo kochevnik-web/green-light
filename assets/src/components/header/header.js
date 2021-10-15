@@ -166,6 +166,7 @@ window.onload = function() {
 
     let globalCountTree = 246.1;
     let globalCountY = 11030971;
+    let globalCountV = 46;
 
     gsap.from('#count-tree span', {
         textContent: 0,
@@ -195,14 +196,28 @@ window.onload = function() {
         }
     });
 
+    gsap.from('#count-v', {
+        textContent: 0,
+        duration: 1,
+        ease: "power1.in",
+        snap: { textContent: 1 },
+        scrollTrigger: {
+            trigger: '.location-footer',
+            start: 'top bottom',
+            end: 'bottom top',
+        }
+    });
+
     $(document).on('click', '#location-map [fill="#6D9773"]', function(e) {
         $('.location-modal').fadeOut(333);
         const modal = $('.location-modal[data-location="' + $(this).attr('id') + '"]');
         const countTree = modal.data('count-tree');
         const countY = modal.data('count-y');
+        const countV = modal.data('count-v');
 
         $('#count-tree span').text(countTree);
         $('#count-y').text(countY);
+        $('#count-v').text(countV);
 
         gsap.from('#count-tree span', {
             textContent: globalCountTree,
@@ -221,7 +236,14 @@ window.onload = function() {
             onUpdate: function() {
                 this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent))
             }
+        });
 
+        gsap.from('#count-v', {
+            textContent: globalCountV,
+            duration: 1,
+            ease: "power1.in",
+            snap: { textContent: 1 },
+            onComplete: () => globalCountV = countV
         });
 
         const t = $(this);
