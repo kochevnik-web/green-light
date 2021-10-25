@@ -1,7 +1,7 @@
 .services {
     position: relative;
     overflow: hidden;
-    background-color: var(--grey2);
+    background-color: var(--grey);
     transition: background-color ease-out 0.8s;
 
     #services-1 {
@@ -10,6 +10,7 @@
 
         h2 {
             font-family: Tenor Sans, sans-serif;
+            color: var(--green);
             padding: 0;
             margin: 0 0 4.4em;
             text-transform: uppercase;

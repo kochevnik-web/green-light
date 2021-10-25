@@ -292,7 +292,7 @@ window.onload = function() {
                     end: 'bottom-=50px top',
                     onEnter: () => {
                         if(section.hasAttribute('data-color-services')){
-                            servicesIner.style.backgroundColor = '#505050';
+                            servicesIner.style.backgroundColor = '#f2f2f2';
                             const attr = section.getAttribute('data-color-services');
                             servicesIner.style.backgroundColor = attr;
                         }
@@ -304,7 +304,7 @@ window.onload = function() {
                     },
                     onEnterBack: () => {
                         if(section.hasAttribute('data-color-services')){
-                            servicesIner.style.backgroundColor = '#505050';
+                            servicesIner.style.backgroundColor = '#f2f2f2';
                             const attr = section.getAttribute('data-color-services');
                             servicesIner.style.backgroundColor = attr;
                         }
@@ -315,11 +315,11 @@ window.onload = function() {
                         }
                     },
                     onLeave: () => {
-                        servicesIner.style.backgroundColor = '#505050';
+                        servicesIner.style.backgroundColor = '#f2f2f2';
                         clearServicesClasses();
                     },
                     onLeaveBack: () => {
-                        servicesIner.style.backgroundColor = '#505050';
+                        servicesIner.style.backgroundColor = '#f2f2f2';
                         clearServicesClasses();
                     },
                     // markers: true
